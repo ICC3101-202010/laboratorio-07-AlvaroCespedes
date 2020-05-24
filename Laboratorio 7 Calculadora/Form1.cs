@@ -26,6 +26,8 @@ namespace Laboratorio_7_Calculadora
         Clases.Multiplicacion obj3 = new Clases.Multiplicacion();
         Clases.Division obj4 = new Clases.Division();
 
+        Clases.Ans obj5 = new Clases.Ans();
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -150,6 +152,24 @@ namespace Laboratorio_7_Calculadora
                     Pantalla.Text = div.ToString();
                     break;
             }
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            Pantalla.Clear(); // Limpiamos la pantalla.
+        }
+
+        private void btnDEL_Click(object sender, EventArgs e)
+        {
+            if (Pantalla.Text.Length == 1)
+                Pantalla.Text = "";
+            else
+                Pantalla.Text = Pantalla.Text.Substring(0, Pantalla.Text.Length - 1);
+        }
+
+        private void btnAns_Click(object sender, EventArgs e)// Tiene que retornar el valor que quedo guardado despues de apretar =.
+        {
+
         }
     }
 }
