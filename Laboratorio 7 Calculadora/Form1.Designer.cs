@@ -200,6 +200,7 @@
             this.btnIgual.TabIndex = 13;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = true;
+            this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
             // 
             // btnX
             // 

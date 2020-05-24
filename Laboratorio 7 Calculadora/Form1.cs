@@ -20,6 +20,12 @@ namespace Laboratorio_7_Calculadora
             InitializeComponent();
         }
 
+        //Ahora llamamos a las clases que creamos.
+        Clases.Suma obj = new Clases.Suma();
+        Clases.Resta obj2 = new Clases.Resta();
+        Clases.Multiplicacion obj3 = new Clases.Multiplicacion();
+        Clases.Division obj4 = new Clases.Division();
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -106,6 +112,44 @@ namespace Laboratorio_7_Calculadora
             operador = "*";
             primero = double.Parse(Pantalla.Text); //El primero valor lo convierte a double.
             Pantalla.Clear();
+        }
+
+        private void btnIgual_Click(object sender, EventArgs e)
+        {
+            segundo = double.Parse(Pantalla.Text);
+
+            //Declaramos las operaciones
+            double sum;
+            double rest;
+            double multi;
+            double div;
+
+            switch(operador)
+            {
+                case "+":
+                    sum = obj.Sumar((primero), (segundo));
+                    //queremos que aparezca en la pantalla
+                    Pantalla.Text = sum.ToString(); //PAra que aparezca en pantalla y transformamos a string
+                    break;
+
+                case "-":
+                    rest = obj2.Restar(primero, segundo);
+                    //queremos que aparezca en la pantalla
+                    Pantalla.Text = rest.ToString();
+                    break;
+
+                case "*":
+                    multi = obj3.Multiplicar(primero, segundo);
+                    //queremos que aparezca en la pantalla
+                    Pantalla.Text = multi.ToString();
+                    break;
+
+                case "/":
+                    div = obj4.Dividir(primero, segundo);
+                    //queremos que aparezca en la pantalla
+                    Pantalla.Text = div.ToString();
+                    break;
+            }
         }
     }
 }

@@ -8,5 +8,11 @@ namespace Laboratorio_7_Calculadora.Clases
 {
     class Suma
     {
+        public double Sumar(double n1, double n2)
+        {
+            double S;
+            S = n1 + n2;
+            return S;
+        }
     }
 }

@@ -8,5 +8,11 @@ namespace Laboratorio_7_Calculadora.Clases
 {
     class Multiplicacion
     {
+        public double Multiplicar(double n1, double n2)
+        {
+            double M;
+            M = n1 * n2;
+            return M;
+        }
     }
 }
