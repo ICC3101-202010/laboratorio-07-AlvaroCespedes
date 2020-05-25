@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboratorio_7_Calculadora.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Laboratorio_7_Calculadora
         double primero;
         double segundo;
         string operador;
+        double ans;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace Laboratorio_7_Calculadora
         Clases.Multiplicacion obj3 = new Clases.Multiplicacion();
         Clases.Division obj4 = new Clases.Division();
 
-        Clases.Ans obj5 = new Clases.Ans();
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -85,7 +87,7 @@ namespace Laboratorio_7_Calculadora
 
         private void btnPto_Click(object sender, EventArgs e)
         {
-            Pantalla.Text = Pantalla.Text + ".";
+            Pantalla.Text = Pantalla.Text + ","; // Con la , sirve para ahcer operaciones con decimales.
         }
 
         private void btnSum_Click(object sender, EventArgs e)
@@ -132,24 +134,37 @@ namespace Laboratorio_7_Calculadora
                     sum = obj.Sumar((primero), (segundo));
                     //queremos que aparezca en la pantalla
                     Pantalla.Text = sum.ToString(); //PAra que aparezca en pantalla y transformamos a string
+                    ans = sum;
                     break;
 
                 case "-":
                     rest = obj2.Restar(primero, segundo);
                     //queremos que aparezca en la pantalla
                     Pantalla.Text = rest.ToString();
+                    ans = rest;
                     break;
 
                 case "*":
                     multi = obj3.Multiplicar(primero, segundo);
                     //queremos que aparezca en la pantalla
                     Pantalla.Text = multi.ToString();
+                    ans = multi;
                     break;
 
                 case "/":
                     div = obj4.Dividir(primero, segundo);
-                    //queremos que aparezca en la pantalla
-                    Pantalla.Text = div.ToString();
+                    if (segundo == 0)
+                    {
+                        Pantalla.Text = Pantalla.Text + "MATH ERROR";
+                        ans = div;
+                        break;
+                    }
+                    else
+                    {
+                        Pantalla.Text = div.ToString();
+                        ans = div;
+                    }
+
                     break;
             }
         }
@@ -162,14 +177,16 @@ namespace Laboratorio_7_Calculadora
         private void btnDEL_Click(object sender, EventArgs e)
         {
             if (Pantalla.Text.Length == 1)
+            {
                 Pantalla.Text = "";
+            }
             else
                 Pantalla.Text = Pantalla.Text.Substring(0, Pantalla.Text.Length - 1);
         }
 
         private void btnAns_Click(object sender, EventArgs e)// Tiene que retornar el valor que quedo guardado despues de apretar =.
         {
-
+            Pantalla.Text = Pantalla.Text + ans;
         }
     }
 }

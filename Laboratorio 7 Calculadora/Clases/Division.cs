@@ -11,7 +11,7 @@ namespace Laboratorio_7_Calculadora.Clases
         public double Dividir(double n1, double n2)
         {
             double D;
-            D = n1 + n2;
+            D = n1 / n2;
             return D; //Ver que pasa cuando se divide por cero.
         }
     }

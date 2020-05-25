@@ -11,7 +11,7 @@ namespace Laboratorio_7_Calculadora.Clases
         public double Restar(double n1, double n2)
         {
             double R;
-            R = n1 + n2;
+            R = n1 - n2;
             return R;
         }
     }
