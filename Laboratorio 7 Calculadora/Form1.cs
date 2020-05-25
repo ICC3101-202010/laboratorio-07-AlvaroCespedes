@@ -156,7 +156,6 @@ namespace Laboratorio_7_Calculadora
                     if (segundo == 0)
                     {
                         Pantalla.Text = Pantalla.Text + "MATH ERROR";
-                        ans = div;
                         break;
                     }
                     else
